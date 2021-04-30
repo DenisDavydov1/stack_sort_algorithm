@@ -120,9 +120,9 @@ You can also run it with visualization flags:
 
 - "-v" - visualize stacks on every step of sort
 - "-c" - visualize and highlight current moving element (use with "-v")
-- "-a" - color elements in ascending order with green, in descending in red (use with "-v")
+- "-a" - color elements in ascending order in green, in descending in red (use with "-v")
 - "-mX" - add animation to step-by-step stacks conditions while sort is going, where "X" is a positive integer from 1 to 100 describing animation speed, less is faster (use with "-v" or "-s")
-- "-s" - another type of visualization, showing stacks as colored columns (use with "-mX")
+- "-s" - another type of visualization, showing numbers as colored columns (use with "-mX")
 
 For example: `./push_swap -s -m6 25 13 4 16 22 18 14 19 3 12 10 1 7 15 5 26 24 28 21 20`
 

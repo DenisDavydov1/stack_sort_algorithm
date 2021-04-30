@@ -21,64 +21,8 @@ becomes the first one.
 becomes the first one.
 **rrr** : **rra** and **rrb** at the same time.
 
-
-
-<details>
-	<summary>Spoiler (Example)</summary>
-	To illustrate the effect of some of these instructions, let’s sort a random list of integers.
+To illustrate the effect of some of these instructions, let’s sort a random list of integers.
 In this example, we’ll consider that both stack are growing from the right.
-<pre><code>Init a and b:
-2
-1
-3
-6
-5
-8
-_ _
-a b</pre></code>
-<pre><code>Exec sa:
-1
-2
-3
-6
-5
-8
-_ _
-a b</pre></code>
-<pre><code>Exec pb pb pb:
-6 3
-5 2
-8 1
-_ _
-a b</pre></code>
-<pre><code>Exec ra rb (equiv. to rr):
-5 2
-8 1
-6 3
-_ _
-a b</pre></code>
-<pre><code>Exec rra rrb (equiv. to rrr):
-6 3
-5 2
-8 1
-_ _
-a b</pre></code>
-<pre><code>Exec sa:
-5 3
-6 2
-8 1
-_ _
-a b</pre></code>
-<pre><code>Exec pa pa pa:
-1
-2
-3
-5
-6
-8
-_ _
-a b</pre></code>
-</details>
 
 ```
 Init a and b:
@@ -155,3 +99,37 @@ a b
 This example sort integers from a in 12 instructions.
 
 Allowed functions: write, read, malloc, free, exit.
+
+To run execute `make` and then `./push_swap 7 2 8 3 0 1` (numbers are example).
+
+To check if sorting algorithm work as it should run:
+`ARG="7 2 8 3 0 1"; ./push_swap $ARG | ./checker $ARG`
+
+You can also run it with visualization flags:
+
+- "-v" - visualize stacks on every step of sort
+- "-c" - visualize and highlight current moving element (use with "-v")
+- "-a" - color elements in ascending order with green, in descending in red (use with "-v")
+- "-mX" - add animation to step-by-step stacks conditions while sort is going, where "X" is a positive integer from 1 to 100 describing animation speed, less is faster (use with "-v" or "-s")
+- "-s" - another type of visualization, showing stacks as colored columns (use with "-mX")
+
+For example: `./push_swap -s -m6 25 13 4 16 22 18 14 19 3 12 10 1 7 15 5 26 24 28 21 20`
+
+![](https://raw.githubusercontent.com/mandarin10101/stack_sort_algorithm/main/example-s-m6.gif)
+
+
+
+<details>
+<summary>Spoiler (Results)</summary>
+There are the worst  results of this algorithm in sorting:
+<ul><li>3 numbers - 2 moves</li>
+<li>4 numbers - 9 moves</li>
+<li>5 numbers - 11 moves</li>
+<li>6 numbers - 18 moves</li>
+<li>10 numbers - 37 moves</li>
+<li>50 numbers - 283 moves</li>
+<li>100 numbers - 674 moves</li>
+<li>500 numbers - 4894 moves</li>
+<li>1000 numbers - 11530 moves</li>
+</ul>
+</details>
